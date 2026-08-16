@@ -8,7 +8,7 @@ A complete static academic website built from the supplied CV. It uses plain HTM
 - `cv.html` — full web CV with print / Save as PDF support
 - `styles.css` — responsive design + print styles + dark mode
 - `script.js` — theme toggle and footer year
-- `assets/favicon.svg` — JL monogram favicon
+- `assets/favicon.svg` — fish favicon
 - `404.html` — custom not-found page
 - `.nojekyll` — tells GitHub Pages to serve the static files directly
 
