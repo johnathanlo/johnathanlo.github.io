@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap");
+
 :root {
   --sky: #c7d5d9;
   --sky-deep: #adbec4;
@@ -20,7 +22,7 @@ body {
   min-height: 100vh;
   background: var(--sky);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
   line-height: 1.58;
 }
 
@@ -44,7 +46,6 @@ button, input, textarea { font: inherit; }
 }
 .skip-link:focus { transform: none; }
 
-/* Simple flat nav — intentionally not a portfolio-style toolbar. */
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
@@ -69,7 +70,7 @@ button, input, textarea { font: inherit; }
   color: var(--ink);
   text-decoration: none;
   font-size: .95rem;
-  font-weight: 600;
+  font-weight: 500;
   padding: .25rem 0 .2rem;
   border-bottom: 1px solid transparent;
 }
@@ -78,7 +79,6 @@ button, input, textarea { font: inherit; }
   border-bottom-color: var(--ink);
 }
 
-/* Home: one screen, one photo, one identity block. */
 .landing-page {
   height: 100svh;
   overflow: hidden;
@@ -115,7 +115,7 @@ button, input, textarea { font: inherit; }
   padding: 72px 0 18px;
 }
 .profile-card {
-  width: min(calc(100vw - 36px), 420px);
+  width: min(calc(100vw - 36px), 480px);
   padding: 1.35rem 1.5rem 1.3rem;
   text-align: center;
   background: rgba(243, 239, 231, .94);
@@ -127,7 +127,7 @@ button, input, textarea { font: inherit; }
   height: 138px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 14%;
+  object-position: center center;
   margin: 0 auto .9rem;
   border: 3px solid #b7c7c2;
 }
@@ -138,31 +138,36 @@ button, input, textarea { font: inherit; }
 }
 .name-line {
   width: 100%;
-  margin: 0 0 .65rem;
+  margin: 0 0 .5rem;
   text-align: center;
 }
 h1, h2, h3, h4 {
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: -.025em;
+  font-family: "Roboto Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: -.03em;
   line-height: 1.12;
 }
 .name-line h1 {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  max-width: 100%;
   margin: 0;
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 4.2vw, 1.82rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
   white-space: nowrap !important;
   word-break: keep-all !important;
   overflow-wrap: normal !important;
   hyphens: none !important;
 }
-.pronouns {
-  display: block;
-  margin-top: .35rem;
+.pronouns-inline {
+  font-size: .68em;
+  font-weight: 500;
   color: var(--muted);
-  font-size: .88rem;
+}
+.front-blurb {
+  margin: 0 0 .8rem;
+  color: var(--muted);
+  font-size: .93rem;
+  line-height: 1.55;
 }
 .hero-contact {
   margin: 0;
@@ -170,7 +175,6 @@ h1, h2, h3, h4 {
 }
 .hero-contact a { text-decoration: none; }
 
-/* Interior pages: flat, pastel, editorial rather than dashboard-like. */
 .interior-main,
 .cv-page main { padding-top: 58px; }
 .page-hero {
@@ -234,7 +238,7 @@ h1, h2, h3, h4 {
   margin: 0 0 .45rem;
   color: #5b6d70;
   font-size: .78rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 .pub-card {
   display: grid;
@@ -267,7 +271,6 @@ h1, h2, h3, h4 {
 }
 .card-body { padding: 1.2rem 1.35rem 1.3rem; }
 
-/* CV stays readable and printable, but shares the same matte palette. */
 .cv-hero { padding: 38px 0 8px; }
 .cv-hero-wrap {
   display: grid;
@@ -365,7 +368,8 @@ h1, h2, h3, h4 {
   .splash-wrap { padding-top: 66px; }
   .profile-card { width: min(calc(100vw - 28px), 390px); padding: 1.2rem 1.2rem 1.15rem; }
   .avatar { width: 128px; height: 128px; }
-  .name-line h1 { font-size: 1.85rem; }
+  .name-line h1 { font-size: clamp(1.18rem, 4vw, 1.55rem); }
+  .front-blurb { font-size: .88rem; }
   .pub-card,
   .cv-entry { grid-template-columns: 1fr; }
   .cv-head { flex-direction: column; align-items: flex-start; }
@@ -379,24 +383,25 @@ h1, h2, h3, h4 {
   .nav a { font-size: .77rem; }
   .profile-card { width: min(calc(100vw - 20px), 360px); padding: 1rem .9rem 1.05rem; }
   .avatar { width: 116px; height: 116px; }
-  .name-line h1 { font-size: 1.7rem; }
-  .pronouns { font-size: .8rem; }
-  .hero-contact { font-size: .86rem; }
+  .name-line h1 { font-size: clamp(1.02rem, 3.9vw, 1.28rem); }
+  .pronouns-inline { font-size: .7em; }
+  .front-blurb { font-size: .84rem; }
+  .hero-contact { font-size: .82rem; }
 }
 
 @media (max-width: 340px) {
   .nav { gap: .45rem; }
   .nav a { font-size: .7rem; }
-  .name-line h1 { font-size: 1.58rem; }
+  .name-line h1 { font-size: .94rem; }
 }
 
 @media (max-height: 630px) {
   .splash-wrap { padding-top: 62px; }
   .profile-card { padding-top: .85rem; padding-bottom: .85rem; }
   .avatar { width: 104px; height: 104px; margin-bottom: .65rem; }
-  .name-line { margin-bottom: .5rem; }
-  .name-line h1 { font-size: 1.65rem; }
-  .pronouns { margin-top: .25rem; }
+  .name-line { margin-bottom: .38rem; }
+  .name-line h1 { font-size: clamp(1.0rem, 3.6vw, 1.28rem); }
+  .front-blurb { margin-bottom: .55rem; font-size: .84rem; }
 }
 
 @media print {
