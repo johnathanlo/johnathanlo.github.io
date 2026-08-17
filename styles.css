@@ -420,3 +420,357 @@ h1, h2, h3, h4 {
   .cv-pubs li { margin: .55rem 0; }
   @page { size: letter; margin: .55in; }
 }
+
+/* Poetry Compass --------------------------------------------------------- */
+.random-wide {
+  width: min(calc(100% - 36px), 1180px);
+}
+.random-grid-after-compass { margin-top: .9rem; }
+.poetry-compass-card {
+  padding: 1.3rem 1.35rem 1.4rem;
+  background: #ded8e5;
+}
+.compass-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.compass-heading h2 {
+  margin: 0 0 .45rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+.compass-heading p:not(.mini-kicker) {
+  max-width: 760px;
+  margin: 0;
+  color: #566469;
+}
+.compass-model-note {
+  flex: 0 0 auto;
+  padding: .45rem .6rem;
+  border: 1px solid rgba(78, 96, 102, .28);
+  border-radius: 7px;
+  background: rgba(243, 239, 231, .55);
+  color: #5e6a6e;
+  font-size: .72rem;
+  white-space: nowrap;
+}
+.compass-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 1rem;
+  align-items: start;
+}
+.compass-plot-column { min-width: 0; }
+.compass-plot-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(78, 96, 102, .28);
+  border-radius: 10px;
+  background: rgba(243, 239, 231, .73);
+}
+.compass-plot {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 470px;
+}
+.compass-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: .82rem;
+  pointer-events: none;
+}
+.compass-tooltip {
+  position: absolute;
+  z-index: 4;
+  max-width: 270px;
+  padding: .46rem .58rem;
+  border: 1px solid rgba(56, 67, 72, .28);
+  border-radius: 7px;
+  background: rgba(243, 239, 231, .97);
+  color: var(--ink);
+  font-size: .72rem;
+  line-height: 1.35;
+  box-shadow: 0 3px 12px rgba(42, 54, 59, .11);
+  opacity: 0;
+  transform: translate(10px, 10px);
+  pointer-events: none;
+  transition: opacity .08s ease;
+}
+.compass-tooltip.show { opacity: 1; }
+.compass-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem .7rem;
+  margin-top: .65rem;
+}
+.compass-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .32rem;
+  color: #5c686d;
+  font-size: .67rem;
+}
+.compass-legend-swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.compass-caption {
+  margin: .55rem 0 0;
+  color: #687478;
+  font-size: .68rem;
+  line-height: 1.45;
+}
+.compass-sidebar {
+  display: grid;
+  gap: .9rem;
+}
+.compass-form,
+.compass-results {
+  border: 1px solid rgba(78, 96, 102, .24);
+  border-radius: 10px;
+  background: rgba(243, 239, 231, .58);
+  padding: .9rem;
+}
+.compass-form label {
+  display: block;
+  margin-bottom: .4rem;
+  color: #566469;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+#compass-text {
+  width: 100%;
+  min-height: 218px;
+  resize: vertical;
+  padding: .7rem .75rem;
+  border: 1px solid rgba(78, 96, 102, .3);
+  border-radius: 7px;
+  background: rgba(248, 246, 240, .9);
+  color: var(--ink);
+  font-size: .78rem;
+  line-height: 1.5;
+  outline: none;
+}
+#compass-text:focus {
+  border-color: #71858b;
+  box-shadow: 0 0 0 2px rgba(113, 133, 139, .11);
+}
+.compass-file-row {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin: .65rem 0;
+  min-height: 30px;
+}
+.compass-file-row input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+.compass-file-label {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: .35rem .5rem;
+  border: 1px solid rgba(78, 96, 102, .28);
+  border-radius: 6px;
+  background: var(--blue);
+  color: var(--ink) !important;
+  cursor: pointer;
+  font-size: .69rem !important;
+  text-transform: none !important;
+}
+.compass-file-label:hover { background: #c8d7de; }
+.compass-file-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: .67rem;
+}
+.compass-submit {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid rgba(78, 96, 102, .3);
+  border-radius: 7px;
+  background: var(--sage);
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+.compass-submit:hover { background: #c6d5c8; }
+.compass-submit:disabled {
+  opacity: .58;
+  cursor: wait;
+}
+.compass-status {
+  margin: .65rem 0 0;
+  color: var(--muted);
+  font-size: .66rem;
+  line-height: 1.45;
+}
+.compass-status.error { color: #874f4f; }
+.compass-status.success { color: #49685a; }
+.compass-results { padding-top: .2rem; }
+.compass-result-section { padding-top: .72rem; }
+.compass-result-section + .compass-result-section {
+  margin-top: .4rem;
+  border-top: 1px solid rgba(78, 96, 102, .18);
+}
+.compass-result-section h3 {
+  margin: 0 0 .25rem;
+  font-size: .88rem;
+}
+.compass-result-note {
+  margin: 0 0 .65rem;
+  color: var(--muted);
+  font-size: .62rem;
+  line-height: 1.4;
+}
+.affinity-list,
+.neighbor-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.affinity-list { display: grid; gap: .4rem; }
+.affinity-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .18rem .55rem;
+  align-items: center;
+}
+.affinity-name,
+.affinity-value {
+  font-size: .68rem;
+}
+.affinity-value {
+  color: #536267;
+  font-variant-numeric: tabular-nums;
+}
+.affinity-track {
+  grid-column: 1 / -1;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(91, 108, 113, .14);
+}
+.affinity-fill {
+  display: block;
+  height: 100%;
+  width: var(--affinity-width, 0%);
+  border-radius: inherit;
+  background: var(--affinity-color, #71858b);
+}
+.neighbor-list { counter-reset: neighbors; }
+.neighbor-item {
+  counter-increment: neighbors;
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr) auto;
+  gap: .35rem;
+  align-items: baseline;
+  padding: .42rem 0;
+  border-top: 1px solid rgba(78, 96, 102, .12);
+  cursor: default;
+}
+.neighbor-item:first-child { border-top: 0; }
+.neighbor-item::before {
+  content: counter(neighbors) ".";
+  color: #7a8589;
+  font-size: .63rem;
+}
+.neighbor-copy { min-width: 0; }
+.neighbor-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink);
+  font-size: .68rem;
+}
+.neighbor-author {
+  display: block;
+  color: var(--muted);
+  font-size: .6rem;
+}
+.neighbor-similarity {
+  color: #647176;
+  font-size: .61rem;
+  font-variant-numeric: tabular-nums;
+}
+.reference-point {
+  opacity: .42;
+  stroke: rgba(243, 239, 231, .5);
+  stroke-width: .35;
+  transition: r .12s ease, opacity .12s ease, stroke-width .12s ease;
+}
+.reference-point:hover {
+  opacity: .95;
+  stroke: #354248;
+  stroke-width: 1.4;
+}
+.reference-point.nearest-point {
+  opacity: .95;
+  stroke: #354248;
+  stroke-width: 1.6;
+}
+.reference-point.neighbor-focus {
+  opacity: 1;
+  stroke: #1f292d;
+  stroke-width: 3;
+}
+.user-point {
+  fill: #f0c06d;
+  stroke: #263338;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 1px 2px rgba(32, 43, 47, .25));
+}
+.compass-grid-line { stroke: rgba(76, 92, 98, .12); stroke-width: 1; }
+.compass-zero-line { stroke: rgba(59, 72, 77, .35); stroke-width: 1.2; }
+.compass-axis-text {
+  fill: #6b777b;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+}
+.compass-axis-label {
+  fill: #536267;
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .compass-layout { grid-template-columns: 1fr; }
+  .compass-sidebar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .compass-plot { min-height: 430px; }
+}
+
+@media (max-width: 720px) {
+  .random-wide { width: min(calc(100% - 20px), 1180px); }
+  .poetry-compass-card { padding: 1rem; }
+  .compass-heading { display: block; }
+  .compass-model-note { display: inline-block; margin-top: .7rem; }
+  .compass-sidebar { grid-template-columns: 1fr; }
+  .compass-plot { min-height: 360px; }
+}
+
+@media (max-width: 480px) {
+  .compass-plot { min-height: 315px; }
+  .compass-tooltip { max-width: 220px; font-size: .66rem; }
+  .compass-legend-item { font-size: .61rem; }
+}

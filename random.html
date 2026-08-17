@@ -7,7 +7,8 @@
   <meta name="theme-color" content="#c7d5d9">
   <title>Random | Johnathan Lo</title>
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
+  <script src="script.js?v=8" defer></script>
 </head>
 <body class="interior-page random-page">
   <header class="site-header">
@@ -31,8 +32,60 @@
     </section>
 
     <section class="content-section page-content">
-      <div class="wrap narrow">
-        <div class="random-grid">
+      <div class="wrap random-wide">
+        <article class="matte-panel tone-lilac poetry-compass-card" id="poetry-compass">
+          <div class="compass-heading">
+            <div>
+              <p class="mini-kicker">side project</p>
+              <h2>Poetry Compass</h2>
+              <p>Paste a poem and place it among 1,985 reference poems. Neighbors are chosen in the original 1,024-dimensional BGE-M3 space; the chart is a fixed two-component PCA projection.</p>
+            </div>
+            <div class="compass-model-note">BGE-M3 · 1024D → PCA</div>
+          </div>
+
+          <div class="compass-layout">
+            <div class="compass-plot-column">
+              <div class="compass-plot-shell">
+                <svg id="compass-plot" class="compass-plot" viewBox="0 0 920 680" role="img" aria-label="Scatter plot of reference poems in PCA space"></svg>
+                <div id="compass-tooltip" class="compass-tooltip" role="status" aria-live="polite"></div>
+                <div id="compass-loading" class="compass-loading">loading reference poems…</div>
+              </div>
+              <div id="compass-legend" class="compass-legend" aria-label="Author color legend"></div>
+              <p class="compass-caption">PC1: 3.71% variance · PC2: 3.14% variance. Highlighted neighbors are selected by full 1,024-D cosine similarity, not by 2-D distance.</p>
+            </div>
+
+            <aside class="compass-sidebar">
+              <form id="compass-form" class="compass-form">
+                <label for="compass-text">your poem</label>
+                <textarea id="compass-text" rows="12" maxlength="200000" placeholder="paste a poem here…" required></textarea>
+
+                <div class="compass-file-row">
+                  <label class="compass-file-label" for="compass-file">load .txt</label>
+                  <input id="compass-file" type="file" accept=".txt,text/plain">
+                  <span id="compass-file-name" class="compass-file-name"></span>
+                </div>
+
+                <button id="compass-submit" class="compass-submit" type="submit">plot my poem</button>
+                <p id="compass-status" class="compass-status" aria-live="polite">Your text is sent to the Poetry Compass model API when you plot it.</p>
+              </form>
+
+              <div id="compass-results" class="compass-results" hidden>
+                <section class="compass-result-section">
+                  <h3>Author affinity</h3>
+                  <p class="compass-result-note">Relative style affinity within this reference corpus, not authorship probability.</p>
+                  <ol id="compass-affinity" class="affinity-list"></ol>
+                </section>
+
+                <section class="compass-result-section">
+                  <h3>Closest poems</h3>
+                  <ol id="compass-neighbors" class="neighbor-list"></ol>
+                </section>
+              </div>
+            </aside>
+          </div>
+        </article>
+
+        <div class="random-grid random-grid-after-compass">
           <article class="matte-panel image-card tone-blue">
             <img src="assets/splash-landscape.jpg" alt="Snowy mountain landscape above a valley full of clouds">
             <div class="card-body">
